@@ -1,0 +1,4 @@
+.toast {
+  animation: slide-from-left 0.6s 1 linear;
+  max-width: 200px;
+}

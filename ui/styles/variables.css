@@ -1,0 +1,85 @@
+:root {
+  --col-1-width: 8.33%;
+  --col-2-width: 16.66%;
+  --col-3-width: 25%;
+  --col-4-width: 33.32%;
+  --col-5-width: 41.65%;
+  --col-6-width: 50%;
+  --col-7-width: 58.33%;
+  --col-8-width: 66.66%;
+  --col-9-width: 75%;
+  --col-10-width: 83.33%;
+  --col-11-width: 91.66%;
+  --col-12-width: 100%;
+
+  --rem-1: 0.2rem;
+  --rem-2: 0.4rem;
+  --rem-3: 0.6rem;
+  --rem-4: 0.8rem;
+  --rem-5: 1rem;
+  --rem-6: 1.2rem;
+  --rem-7: 1.4rem;
+  --rem-8: 1.6rem;
+  --rem-9: 1.8rem;
+  --rem-10: 2rem;
+
+  --gray00: #000000;
+  --gray01: #1a1a1a;
+  --gray02: #333333;
+  --gray03: #4d4d4d;
+  --gray04: #666666;
+  --gray05: #808080;
+  --gray06: #999999;
+  --gray07: #b3b3b3;
+  --gray08: #cccccc;
+  --gray09: #e6e6e6;
+  --gray10: #ffffff;
+
+  --red00: #250e0e;
+  --red01: #381414;
+  --red02: #4b1b1b;
+  --red03: #702929;
+  --red04: #963636;
+  --red05: #bb4444;
+  --red06: #c96969;
+  --red07: #d68f8f;
+  --red08: #e4b4b4;
+  --red09: #f1dada;
+  --red10: #f8ecec;
+
+  --green00: #112211;
+  --green01: #1a3319;
+  --green02: #224422;
+  --green03: #336732;
+  --green04: #448943;
+  --green05: #56ab54;
+  --green06: #77bc76;
+  --green07: #99cd98;
+  --green08: #bbddbb;
+  --green09: #ddeedd;
+  --green10: #eef7ee;
+
+  --blue00: #141e38;
+  --blue01: #1b294b;
+  --blue02: #22335e;
+  --blue03: #293d70;
+  --blue04: #365196;
+  --blue05: #4466bb;
+  --blue06: #6984c9;
+  --blue07: #8fa3d6;
+  --blue08: #b4c2e4;
+  --blue09: #dae0f1;
+  --blue10: #ecf0f8;
+
+  --orange00: #2e1b05;
+  --orange01: #462807;
+  --orange02: #5d3609;
+  --orange03: #8b510e;
+  --orange04: #ba6c12;
+  --orange05: #e88617;
+  --orange06: #ed9f45;
+  --orange07: #f1b774;
+  --orange08: #f6cfa2;
+  --orange09: #fae7d1;
+  --orange10: #fdf3e8;
+}

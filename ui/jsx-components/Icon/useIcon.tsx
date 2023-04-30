@@ -1,0 +1,6 @@
+import React from "react";
+import { NTDIcon } from "../../../types/icon";
+
+export default function useIcon(props: NTDIcon.IIconHook) {
+  return {};
+}
