@@ -1,0 +1,7 @@
+.icon__wrapper {
+  fill: red;
+  color: red;
+}
+.icon__wrapper path {
+  stroke: red;
+}
