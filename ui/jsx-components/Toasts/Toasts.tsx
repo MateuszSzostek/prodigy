@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Toast from "./Toast";
+import { Toast } from "./Toast";
 import { NTDToasts } from "../../../types/toasts";
-import { useStore } from "../../../store/useStore";
+import { useToastsStore } from "../../../store/useStore";
 import { NTDStore } from "../../../types/store";
 
-export default function Toasts() {
-  const [toasts, dispatch] = useStore(({ prodigy }) => prodigy.toasts);
+export function Toasts() {
+  const [toasts, dispatch] = useToastsStore(({ toasts }) => toasts);
 
   useEffect(() => {
     if (toasts.length > 0) {
@@ -14,8 +14,8 @@ export default function Toasts() {
         : Date.now();
       const toastLifeTime = 100000 - (Date.now() - timeCreated);
       const toastTimer = setTimeout(() => {
-        dispatch((state: NTDStore.IStore) => {
-          state.prodigy.toasts = state.prodigy.toasts.slice(1);
+        dispatch((state: NTDStore.IToastsStore) => {
+          state.toasts = state.toasts.slice(1);
           return state;
         });
       }, toastLifeTime);
@@ -26,7 +26,7 @@ export default function Toasts() {
   }, [toasts.length]);
 
   return (
-    <div className="t-0 l-0 w-full h-full">
+    <div className="t-0 l-0 h-full fixed">
       {toasts?.map((toast: NTDToasts.IToast) => (
         <Toast key={toast.timestampCreated} {...toast} />
       ))}

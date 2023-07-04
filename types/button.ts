@@ -2,13 +2,10 @@ import { NTDUI } from "./ui";
 import { ButtonHTMLAttributes, PropsWithChildren } from "react";
 export namespace NTDButton {
   export interface IButton extends NTDUI.IUIElement, PropsWithChildren {
-    small?: boolean;
+    size?: ButtonSizeType;
     bold?: boolean;
     appearance?: "solid" | "soft" | "simple";
-    base?: React.DetailedHTMLProps<
-      ButtonHTMLAttributes<HTMLButtonElement>,
-      HTMLButtonElement
-    >;
+    base?: React.HTMLProps<HTMLButtonElement>;
   }
 
   export type ButtonAppearance = "solid" | "soft" | "simple";
@@ -18,12 +15,15 @@ export namespace NTDButton {
     labelColorClass: string;
   }
 
+  export type ButtonSizeType = "xs" | "sm" | "md" | "lg";
+
   export interface IButtonBorderColor {
     borderColorClass: string;
   }
 
   export interface IButtonSize {
     sizeClass: string;
+    labelSizeClass: string;
   }
 
   export interface IButtonHook extends IButton {}

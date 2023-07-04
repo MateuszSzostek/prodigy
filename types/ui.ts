@@ -4,7 +4,7 @@ export namespace NTDUI {
     model?: MetaColorType;
     shade?: boolean;
     border?: boolean;
-    className?: string;
+    extraClass?: string;
   }
 
   export interface IUIBaseClassStyles {

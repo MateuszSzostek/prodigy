@@ -1,12 +1,17 @@
+import { NTDStore } from "../types/store";
 import { createStore } from "./createStore";
 
-const { useStore } = createStore({
-  store: {
-    counter: 9,
-  },
-  prodigy: {
-    toasts: [],
-  },
+const [useCounterStore] = createStore<NTDStore.ICounterStore>({
+  counter: 9,
 });
 
-export { useStore };
+const [useToastsStore] = createStore<NTDStore.IToastsStore>({
+  toasts: [],
+});
+
+const [useLightboxStore] = createStore<NTDStore.ILightboxStore>({
+  isActive: false,
+  content: [],
+});
+
+export { useCounterStore, useToastsStore, useLightboxStore };

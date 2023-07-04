@@ -1,28 +1,23 @@
 import { useState, useMemo } from "react";
 import { NTDStore } from "../types/store";
 
-class EventEmitter extends EventTarget {
-  emit(key: string) {
-    this.dispatchEvent(new Event(key));
-  }
-}
+//class EventEmitter extends EventTarget {
+// emit(key: string) {
+//   this.dispatchEvent(new Event(key));
+//  }
+//}
 
-export function createStore(storeState: NTDStore.IStore) {
-  const instance = new EventEmitter();
+export function createStore<F>(storeState: F) {
+  const instance = new EventTarget();
 
   function useStore<T>(
-    stateSelector?: (selectorState: NTDStore.IStore) => T
-  ): [
-    T,
-    (reducer: (reducerState: NTDStore.IStore) => NTDStore.IStore) => void
-  ] {
-    const [count, setCount] = useState(0);
+    stateSelector: (selectorState: F) => T
+  ): [T, (reducer: (reducerState: F) => F) => void] {
+    const [, setCount] = useState(0);
 
-    function dispatch(
-      reducer: (reducerState: NTDStore.IStore) => NTDStore.IStore
-    ) {
+    function dispatch(reducer: (reducerState: F) => F) {
       storeState = reducer(storeState);
-      instance.emit("store-update");
+      instance.dispatchEvent(new Event("store-update"));
     }
 
     useMemo(() => {
@@ -31,9 +26,10 @@ export function createStore(storeState: NTDStore.IStore) {
       });
     }, []);
 
+    //@ts-ignore
     const state = stateSelector(storeState);
 
     return [state, dispatch];
   }
-  return { useStore };
+  return [useStore];
 }

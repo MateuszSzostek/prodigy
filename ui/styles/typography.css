@@ -1,0 +1,163 @@
+.f-w-300 {
+  font-weight: 300;
+}
+
+.f-w-400 {
+  font-weight: 400;
+}
+
+.f-w-500 {
+  font-weight: 500;
+}
+
+.f-w-600 {
+  font-weight: 600;
+}
+
+.f-w-700 {
+  font-weight: 7s00;
+}
+
+p,
+blockquote,
+dd,
+div,
+dl,
+dt,
+figcaption,
+figure,
+hr,
+li,
+menu,
+ol,
+p,
+pre,
+ul,
+a,
+abbr,
+b,
+bdi,
+bdo,
+br,
+cite,
+code,
+data,
+dfn,
+i,
+kbd,
+mark,
+q,
+rp,
+rt,
+s,
+samp,
+span,
+strong,
+sub,
+time,
+u,
+var,
+wbr {
+  font-size: 0.8rem;
+}
+
+small {
+  font-size: 0.7rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+h5 {
+  font-size: 1.2rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 480px) {
+  p,
+  blockquote,
+  dd,
+  div,
+  dl,
+  dt,
+  figcaption,
+  figure,
+  hr,
+  li,
+  menu,
+  ol,
+  p,
+  pre,
+  ul,
+  a,
+  abbr,
+  b,
+  bdi,
+  bdo,
+  br,
+  cite,
+  code,
+  data,
+  dfn,
+  i,
+  kbd,
+  mark,
+  q,
+  rp,
+  rt,
+  s,
+  samp,
+  span,
+  strong,
+  sub,
+  time,
+  u,
+  var,
+  wbr {
+    font-size: 1rem;
+  }
+
+  small {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  h4 {
+    font-size: 1.4rem;
+  }
+
+  h5 {
+    font-size: 1.2rem;
+  }
+
+  h6 {
+    font-size: 1.1rem;
+  }
+}

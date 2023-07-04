@@ -1,3 +1,7 @@
+.m-0 {
+  margin: 0;
+}
+
 .m-02 {
   margin: 0.2rem;
 }
@@ -13,12 +17,32 @@
   cursor: pointer;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .hover-bright:hover {
   filter: contrast(175%);
 }
 
+.bright {
+  filter: contrast(175%);
+}
+
+.p-0 {
+  padding: 0;
+}
+
 .p-10 {
   padding: 1rem;
+}
+
+.p-03 {
+  padding: 0.3rem;
 }
 
 .p-05 {
@@ -35,8 +59,24 @@
   padding-bottom: 0.5rem;
 }
 
+.text-8 {
+  font-size: 0.8rem;
+}
+
+.text-9 {
+  font-size: 0.9rem;
+}
+
 .text-10 {
   font-size: 1rem;
+}
+
+.text-11 {
+  font-size: 1.1rem;
+}
+
+.text-12 {
+  font-size: 1.2rem;
 }
 
 .text-bold {
@@ -302,8 +342,13 @@
 .bg-gray-10 {
   background-color: var(--gray10);
 }
-.bg-gray-05 {
-  background-color: var(--gray05);
+
+.bg-gray-05-rgba-00 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-gray-05-rgba-05 {
+  background-color: rgba(128, 128, 128, 0.5);
 }
 
 .bg-red-00 {
@@ -459,16 +504,51 @@
   position: fixed;
 }
 
+.w-0 {
+  width: 0;
+}
+
+.h-0 {
+  height: 0;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-100 {
+  width: 1rem;
+}
+.w-200 {
+  width: 2rem;
 }
 
 .h-full {
   height: 100%;
 }
 
+.h-100 {
+  height: 1rem;
+}
+
+.h-175 {
+  height: 1.75rem;
+}
+
+.h-200 {
+  height: 2rem;
+}
+
+.h-225 {
+  height: 2.25rem;
+}
+
 .h-275 {
   height: 2.75rem;
+}
+
+.h-325 {
+  height: 3.25rem;
 }
 
 .t-0 {
@@ -479,10 +559,94 @@
   bottom: 0;
 }
 
+.b--200 {
+  bottom: -2rem;
+}
+
+.b--300 {
+  bottom: -3rem;
+}
+
 .l-0 {
   left: 0;
 }
 
 .r-0 {
   right: 0;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.reverse-x {
+  transform: scaleX(-1);
+}
+
+.reverse-y {
+  transform: scaleY(-1);
+}
+
+.rotate-z-90 {
+  transform: rotateZ(90deg);
+}
+
+.rotate-z-270 {
+  transform: rotateZ(270deg);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center-v {
+  align-items: center;
+}
+
+.flex-bottom-v {
+  align-items: flex-end;
+}
+
+.flex-center-h {
+  justify-content: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-03 {
+  opacity: 0.3;
+}
+
+.opacity-05 {
+  opacity: 0.5;
+}
+
+.opacity-07 {
+  opacity: 0.7;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
 }

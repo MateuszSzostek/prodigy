@@ -19,7 +19,7 @@ function getToastStatusClass(status: NTDToasts.ToastStatusType): string {
   }
 }
 
-export default function Toast({ title, status, Body }: NTDToasts.IToast) {
+export function Toast({ title, status, Body }: NTDToasts.IToast) {
   return (
     <div
       className={`toast trans-03 border-1 p-05 m-05 bg-gray-09 round-05 ${getToastStatusClass(

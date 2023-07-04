@@ -1,3 +1,3 @@
-import ProdigyProvider from "./ProdigyProvider";
+import { ProdigyProvider } from "./ProdigyProvider";
 
 export default ProdigyProvider;

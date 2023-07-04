@@ -2,7 +2,7 @@ import React from "react";
 import useButton from "./useButton";
 import { NTDButton } from "../../../types/button";
 
-export default function Button(props: NTDButton.IButton) {
+export function Button(props: NTDButton.IButton) {
   const {
     roundClass,
     shadeClass,
@@ -11,11 +11,15 @@ export default function Button(props: NTDButton.IButton) {
     labelColorClass,
     borderColorClass,
     sizeClass,
+    labelSizeClass,
   } = useButton(props);
 
   return (
+    //@ts-ignore
     <button
-      className={`btn px-10 py-05 text-10 text-bold no-outline trans-03 hover-bright hover-pointer${sizeClass}${roundClass}${shadeClass}${borderClass}${bgColorClass}${labelColorClass}${borderColorClass}`}
+      className={`${
+        typeof props?.extraClass !== "undefined" && props?.extraClass
+      } btn px-10 py-05 text-bold no-outline trans-03 hover-bright hover-pointer${sizeClass}${roundClass}${shadeClass}${borderClass}${bgColorClass}${labelColorClass}${borderColorClass}${labelSizeClass}`}
       {...props.base}
     >
       {props.children}

@@ -1,4 +1,3 @@
-import React from "react";
 import { NTDButton } from "../../../types/button";
 import useUIElementStyles from "../../hooks/useUIElementStyles";
 import { NTDUI } from "../../../types/ui";
@@ -10,7 +9,7 @@ export default function useButton(props: NTDButton.IButtonHook) {
     getButtonAppearance(props?.appearance, props?.model);
   const { borderColorClass }: NTDButton.IButtonBorderColor =
     getButtonBorderColor(props?.border, props?.model);
-  const { sizeClass } = getButtonSize(props?.small);
+  const { sizeClass, labelSizeClass } = getButtonSize(props?.size);
 
   return {
     roundClass,
@@ -20,16 +19,30 @@ export default function useButton(props: NTDButton.IButtonHook) {
     labelColorClass,
     borderColorClass,
     sizeClass,
+    labelSizeClass,
   };
 }
 
-function getButtonSize(small: boolean): NTDButton.IButtonSize {
-  return { sizeClass: ` h-${small === true ? "225" : "275"}` };
+function getButtonSize(
+  size: NTDButton.ButtonSizeType | undefined
+): NTDButton.IButtonSize {
+  switch (size) {
+    case "xs":
+      return { sizeClass: " h-175", labelSizeClass: " text-8" };
+    case "sm":
+      return { sizeClass: " h-225", labelSizeClass: " text-9" };
+    case "md":
+      return { sizeClass: " h-275", labelSizeClass: " text-10" };
+    case "lg":
+      return { sizeClass: " h-325", labelSizeClass: " text-11" };
+    default:
+      return { sizeClass: " h-275", labelSizeClass: " text-10" };
+  }
 }
 
 function getButtonBorderColor(
-  border: boolean,
-  color: NTDUI.MetaColorType
+  border: boolean | undefined,
+  color: NTDUI.MetaColorType | undefined
 ): NTDButton.IButtonBorderColor {
   return border === true
     ? { borderColorClass: ` border-${color ? color : "blue"}-05` }
@@ -38,7 +51,7 @@ function getButtonBorderColor(
 
 function getButtonAppearance(
   appearance: NTDButton.ButtonAppearance = "solid",
-  color: NTDUI.MetaColorType
+  color: NTDUI.MetaColorType | undefined
 ): NTDButton.IButtonAppearanceData {
   switch (appearance) {
     case "simple":
