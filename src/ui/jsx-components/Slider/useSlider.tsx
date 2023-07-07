@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { NTDSlider } from "../../../types/slider";
 import useUIElementStyles from "../../hooks/useUIElementStyles";
