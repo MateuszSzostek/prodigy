@@ -16,8 +16,6 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
   const { borderColorClass }: NTDSlider.ISliderBorderColor =
     getSliderBorderColor(props?.border, props?.model);
 
-  useEffect(() => {}, [props.slide]);
-
   function nextSlide(): void {
     if (activeSlide === props?.items?.length - 1) setActiveSlide(0);
     else setActiveSlide((state) => state + 1);
@@ -47,8 +45,8 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
 
     if (typeof props?.pagination?.limit !== "undefined") {
       let halfLimit = !isOdd(props?.pagination?.limit)
-        ? Math.ceil(props.pagination.limit / 2)
-        : Math.floor(props.pagination.limit / 2);
+        ? Math.ceil(props?.pagination?.limit / 2)
+        : Math.floor(props?.pagination?.limit / 2);
       console.log(isOdd(props?.pagination?.limit));
       const activeBorderSlider =
         activeSlide <= halfLimit
@@ -83,7 +81,7 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
       <li className="p-03">
         {
           // @ts-ignore
-          typeof props.pagination.PaginationBtn !== "undefined" ? (
+          typeof props?.pagination?.PaginationBtn !== "undefined" ? (
             // @ts-ignore
             <button
               onClick={() => selectSlide(idx)}
@@ -95,7 +93,7 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
             >
               {
                 // @ts-ignore
-                props.pagination.PaginationBtn(
+                props?.pagination?.PaginationBtn(
                   activeSlide,
                   idx,
                   props?.items?.length
