@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
-import { Toasts } from "../Toasts";
-import { Lightbox } from "../Lightbox";
+import Toasts from "../Toasts";
+import Lightbox from "../Lightbox";
 import "../../../ui/animations/index.css";
 import "../../../ui/styles/global.css";
 import "../../../ui/styles/variables.css";

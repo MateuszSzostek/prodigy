@@ -1,33 +1,41 @@
 import React from "react";
 import "./Toast.styles.css";
 import { NTDToasts } from "../../../../types/toasts";
+import useToast from "./useToast";
 
-function getToastStatusClass(status: NTDToasts.ToastStatusType): string {
-  switch (status) {
-    case NTDToasts.ToastStatus.ERROR:
-      return "toast__error";
-    case NTDToasts.ToastStatus.SUCCESS:
-      return "toast__success";
-    case NTDToasts.ToastStatus.INFO:
-      return "toast__info";
-    case NTDToasts.ToastStatus.WARNING:
-      return "toast__warning";
-    case NTDToasts.ToastStatus.DEFAULT:
-      return "toast__default";
-    default:
-      return "toast__default";
-  }
-}
+export function Toast(props: NTDToasts.IToast) {
+  const {
+    toastRef,
+    roundClass,
+    shadeClass,
+    borderClass,
+    bgColorClass,
+    labelColorClass,
+    borderColorClass,
+    positionClass,
+  } = useToast(props);
 
-export function Toast({ title, status, Body }: NTDToasts.IToast) {
   return (
     <div
-      className={`toast trans-03 border-1 p-05 m-05 bg-gray-09 round-05 ${getToastStatusClass(
-        status
-      )}`}
+      ref={toastRef}
+      className={`slide-from-left-anim flex flex-col trans-03 p-10 m-05 ${roundClass}${shadeClass}${borderClass}${bgColorClass}${borderColorClass}${positionClass}`}
+      style={{ maxWidth: props?.maxWidth, maxHeight: props?.maxHeight }}
     >
-      <span className="toast__title">{title}</span>
-      {Body}
+      <div className={`flex flex-row w-full between`}>
+        {props?.Title && props?.Title}
+        {props?.CloseBtn ? (
+          props.CloseBtn(props?.onCloseToastHandler)
+        ) : (
+          <button
+            onClick={props?.onCloseToastHandler}
+            className={`hover-pointer bg-transparent border-none ${labelColorClass}`}
+          >
+            &#10005;
+          </button>
+        )}
+      </div>
+
+      {props?.Body && props?.Body}
     </div>
   );
 }

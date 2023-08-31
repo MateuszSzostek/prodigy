@@ -1,1 +1,3 @@
-export { Toasts } from "./Toasts";
+import { Toasts } from "./Toasts";
+
+export default Toasts;

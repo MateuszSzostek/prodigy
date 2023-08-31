@@ -1,8 +1,9 @@
 import React from "react";
 import useButton from "./useButton";
 import { NTDButton } from "../../../types/button";
+import "./Button.styles.css";
 
-export function Button(props: NTDButton.IButton) {
+export default function Button(props: NTDButton.IButton) {
   const {
     roundClass,
     shadeClass,
@@ -17,9 +18,10 @@ export function Button(props: NTDButton.IButton) {
   return (
     //@ts-ignore
     <button
+      data-cy="btn"
       className={`${
-        typeof props?.extraClass !== "undefined" && props?.extraClass
-      } btn px-10 py-05 text-bold no-outline trans-03 hover-bright hover-pointer${sizeClass}${roundClass}${shadeClass}${borderClass}${bgColorClass}${labelColorClass}${borderColorClass}${labelSizeClass}`}
+        props?.extraClass ? props?.extraClass : ""
+      } btn px-10 text-bold no-outline trans-03 hover-bright hover-pointer${sizeClass}${roundClass}${shadeClass}${borderClass}${bgColorClass}${labelColorClass}${borderColorClass}${labelSizeClass}`}
       {...props.base}
     >
       {props.children}

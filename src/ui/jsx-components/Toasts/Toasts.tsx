@@ -12,7 +12,9 @@ export function Toasts() {
       const timeCreated = toasts[0].timestampCreated
         ? toasts[0].timestampCreated
         : Date.now();
-      const toastLifeTime = 100000 - (Date.now() - timeCreated);
+      const toastLifeTime = toasts[0]?.lifeTime
+        ? toasts[0]?.lifeTime - (Date.now() - timeCreated)
+        : 10000 - (Date.now() - timeCreated);
       const toastTimer = setTimeout(() => {
         dispatch((state: NTDStore.IToastsStore) => {
           state.toasts = state.toasts.slice(1);
@@ -26,7 +28,7 @@ export function Toasts() {
   }, [toasts.length]);
 
   return (
-    <div className="t-0 l-0 h-full fixed">
+    <div className="t-0 l-0 fixed">
       {toasts?.map((toast: NTDToasts.IToast) => (
         <Toast key={toast.timestampCreated} {...toast} />
       ))}

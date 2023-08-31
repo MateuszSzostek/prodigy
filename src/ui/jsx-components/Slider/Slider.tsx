@@ -1,7 +1,6 @@
 import React from "react";
 import useSlider from "./useSlider";
 import { NTDSlider } from "../../../types/slider";
-import "./Slider.styles.css";
 
 export default function Slider(props: NTDSlider.ISlider) {
   const {
@@ -19,8 +18,6 @@ export default function Slider(props: NTDSlider.ISlider) {
     LeftArrow,
     RightArrow,
   } = useSlider(props);
-
-  console.log(props.items);
 
   return (
     <div className={`slider relative`} style={{ height: props.height }}>

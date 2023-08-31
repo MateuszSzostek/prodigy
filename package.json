@@ -1,6 +1,6 @@
 {
   "name": "react-prodigy",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Prodigy library package",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

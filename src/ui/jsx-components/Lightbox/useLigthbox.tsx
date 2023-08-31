@@ -6,7 +6,6 @@ export default function useLightbox() {
   const [lightbox, dispatch] = useLightboxStore((lightbox) => lightbox);
 
   function showLightbox({ payload }: NTDLightbox.ILightboxPayload): void {
-    console.log(payload);
     dispatch((state: NTDStore.ILightboxStore) => {
       state.content.push(payload);
       state.isActive = true;

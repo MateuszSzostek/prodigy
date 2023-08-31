@@ -14,29 +14,48 @@ export function TextInput(props: NTDTextInput.ITextInput) {
     labelSizeClass,
     errorLabelSizeClass,
     fieldTextSizeClass,
+    textInputValue,
+    onChangeHandler,
+    validationErrors,
   } = useTextInput(props);
 
   return (
     <div
-      className={`relative ${
+      data-cy="text-input"
+      className={`text-input__container relative ${
         typeof props?.extraClass !== "undefined" ? props?.extraClass : ""
       } trans-03`}
-      {...props.base}
     >
       {props?.label && (
-        <label className={`${labelColorClass}${labelSizeClass}`}>
+        <label
+          data-cy="text-input-label"
+          className={`text-input__label ${labelColorClass}${labelSizeClass}`}
+        >
           {props?.label}
         </label>
       )}
       <input
-        className={`h-full w-full border-box p-03${bgColorClass}${roundClass}${shadeClass}${borderClass}${borderColorClass}${fieldTextSizeClass}${sizeClass}`}
+        data-cy="text-input-field"
+        className={`text-input__field h-full w-full border-box p-03${bgColorClass}${roundClass}${shadeClass}${borderClass}${borderColorClass}${fieldTextSizeClass}${sizeClass}`}
         type="text"
+        {...props?.base}
+        {...props?.register}
+        onChange={onChangeHandler}
+        value={textInputValue}
       />
-      {props?.error && (
-        <label className={`color-red-05 ${errorLabelSizeClass}`}>
-          {props?.error}
-        </label>
-      )}
+      <div className="flex flex-col">
+        {validationErrors &&
+          validationErrors?.map((e) => (
+            <label
+              key={e}
+              data-cy="text-input-error-label"
+              className={`text-input__error-label color-red-05 ${errorLabelSizeClass}`}
+            >
+              {e}
+            </label>
+          ))}
+      </div>
+
       {props.children}
     </div>
   );

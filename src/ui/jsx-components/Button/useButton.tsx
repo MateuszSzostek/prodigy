@@ -28,15 +28,15 @@ function getButtonSize(
 ): NTDButton.IButtonSize {
   switch (size) {
     case "xs":
-      return { sizeClass: " h-175", labelSizeClass: " text-8" };
+      return { sizeClass: " h-175 py-02", labelSizeClass: " text-8" };
     case "sm":
-      return { sizeClass: " h-225", labelSizeClass: " text-9" };
+      return { sizeClass: " h-225 py-05", labelSizeClass: " text-9" };
     case "md":
-      return { sizeClass: " h-275", labelSizeClass: " text-10" };
+      return { sizeClass: " h-275 py-05", labelSizeClass: " text-10" };
     case "lg":
-      return { sizeClass: " h-325", labelSizeClass: " text-11" };
+      return { sizeClass: " h-325 py-05", labelSizeClass: " text-11" };
     default:
-      return { sizeClass: " h-275", labelSizeClass: " text-10" };
+      return { sizeClass: " h-275 py-05", labelSizeClass: " text-10" };
   }
 }
 

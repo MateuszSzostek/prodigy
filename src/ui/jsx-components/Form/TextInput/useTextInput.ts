@@ -1,8 +1,49 @@
 import { NTDTextInput } from "../../../../types/textInput";
 import useUIElementStyles from "../../../hooks/useUIElementStyles";
 import { NTDUI } from "../../../../types/ui";
+import { useEffect, useState } from "react";
+import useValidationErrors from "../InternalFormHooks/useValidationErrors";
 
 export default function useTextInput(props: NTDTextInput.ITextInputHook) {
+  const [textInputValue, setTextInputValue] = useState<string>("");
+  const { validationErrors } = useValidationErrors(props?.register?.name);
+
+  useEffect(() => {
+    if (props?.base?.value) {
+      setTextInputValue(props?.base?.value as string);
+    }
+    if (props?.value) {
+      setTextInputValue(props?.value);
+    }
+  }, [props?.value]);
+  //@ts-ignore
+  const onChangeHandler = (e) => {
+    setTextInputValue(e?.target?.value);
+    if (props?.base?.onChange) {
+      props?.base?.onChange(e);
+    }
+    if (props?.register?.onChange) {
+      props?.register?.onChange(e);
+    }
+  };
+  //@ts-ignore
+  function onInputValueChangeHandler(e) {
+    setTextInputValue(e?.detail?.value);
+  }
+
+  useEffect(() => {
+    window.addEventListener(
+      `oninputvaluechange-${props?.register?.name}`,
+      onInputValueChangeHandler
+    );
+    return () => {
+      window.removeEventListener(
+        `oninputvaluechange-${props?.register?.name}`,
+        onInputValueChangeHandler
+      );
+    };
+  }, [props?.register?.name]);
+
   const { roundClass, shadeClass, borderClass }: NTDUI.IUIBaseClassStyles =
     useUIElementStyles(props);
   const {
@@ -28,6 +69,9 @@ export default function useTextInput(props: NTDTextInput.ITextInputHook) {
     labelSizeClass,
     errorLabelSizeClass,
     fieldTextSizeClass,
+    textInputValue,
+    onChangeHandler,
+    validationErrors,
   };
 }
 
@@ -78,7 +122,7 @@ function getTextInputBorderColor(
   color: NTDUI.MetaColorType | undefined
 ): NTDTextInput.ITextInputBorderColor {
   return border === true
-    ? { borderColorClass: ` border-${color ? color : "gray"}-0` }
+    ? { borderColorClass: ` border-${color ? color : "gray"}-05` }
     : { borderColorClass: "" };
 }
 
@@ -87,20 +131,20 @@ function getTextInputAppearance(
   color: NTDUI.MetaColorType | undefined
 ): NTDTextInput.ITextInputAppearanceData {
   switch (appearance) {
-    case "solid":
-      return {
-        bgColorClass: color ? ` bg-${color}-05` : " bg-transparent",
-        labelColorClass: color ? ` color-${color}-01` : " color-gray-01",
-      };
     case "soft":
       return {
-        bgColorClass: color ? ` bg-${color}-08` : " bg-blue-08",
-        labelColorClass: color ? ` color-${color}-04` : " color-gray-01",
+        bgColorClass: color ? ` bg-${color}-10` : " bg-transparent",
+        labelColorClass: " color-gray-01",
+      };
+    case "simple":
+      return {
+        bgColorClass: ` bg-transparent`,
+        labelColorClass: " color-gray-01",
       };
     default:
       return {
-        bgColorClass: ` bg-transparent`,
-        labelColorClass: color ? ` color-${color}-04` : " color-gray-01",
+        bgColorClass: color ? ` bg-${color}-08` : " bg-transparent",
+        labelColorClass: " color-gray-01",
       };
   }
 }

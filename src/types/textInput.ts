@@ -8,10 +8,12 @@ export namespace NTDTextInput {
     label?: string;
     id?: string;
     name?: string;
-    error?: string;
+    error?: string[];
     base?: React.HTMLProps<HTMLInputElement>;
     appearance?: TextInputAppearance;
     size?: TextInputSizeType;
+    register?: any;
+    value?: string;
   }
 
   export type TextInputAppearance = "solid" | "soft" | "simple";

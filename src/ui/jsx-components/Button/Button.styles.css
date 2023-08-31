@@ -1,0 +1,13 @@
+button {
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+button:disabled,
+button[disabled] {
+  filter: grayscale(80%);
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+  filter: grayscale(80%) contrast(100%);
+}

@@ -5,6 +5,7 @@ import useUIElementStyles from "../../hooks/useUIElementStyles";
 import { NTDUI } from "../../../types/ui";
 import Button from "../Button";
 import ChevronSVG from "../../assets/graphic/components/chevron";
+import { blockNoRefStr } from "../../../utils";
 
 export default function useSlider(props: NTDSlider.ISliderHook) {
   const [activeSlide, setActiveSlide] = useState<number>(0);
@@ -35,7 +36,6 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
   }
 
   function isLimited(idx: number): boolean {
-    // console.log("idx: " + idx);
     // @ts-ignore
     if (props?.pagination?.limit < 3) {
       console.warn("Slider pagination limit can't bee smaller than 3");
@@ -47,7 +47,6 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
       let halfLimit = !isOdd(props?.pagination?.limit)
         ? Math.ceil(props?.pagination?.limit / 2)
         : Math.floor(props?.pagination?.limit / 2);
-      console.log(isOdd(props?.pagination?.limit));
       const activeBorderSlider =
         activeSlide <= halfLimit
           ? halfLimit
@@ -60,12 +59,6 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
         activeBorderSlider -
         halfLimit +
         (!isOdd(props?.pagination?.limit) ? 1 : 0);
-
-      console.log("half " + halfLimit);
-      console.log("activeSlide " + activeSlide);
-      console.log("newActiveSlide " + activeBorderSlider);
-      console.log("borderLeft " + borderLeft);
-      console.log("borderRight " + borderRight);
 
       if (idx <= borderRight && idx >= borderLeft) return false;
       else return true;
@@ -85,11 +78,9 @@ export default function useSlider(props: NTDSlider.ISliderHook) {
             // @ts-ignore
             <button
               onClick={() => selectSlide(idx)}
-              className={`bg-transparent border-none hover-pointer ${
-                typeof props?.pagination?.customClass !== "undefined"
-                  ? props?.pagination?.customClass
-                  : ""
-              }`}
+              className={`bg-transparent border-none hover-pointer ${blockNoRefStr(
+                props?.pagination?.customClass
+              )}`}
             >
               {
                 // @ts-ignore

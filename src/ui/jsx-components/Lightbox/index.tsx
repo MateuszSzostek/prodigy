@@ -1,3 +1,3 @@
-import { Lightbox } from "./Lightbox";
+import Lightbox from "./Lightbox";
 
-export { Lightbox };
+export default Lightbox;

@@ -3,7 +3,7 @@ import useLightbox from "./useLigthbox";
 import { NTDLightbox } from "../../../types/lightbox";
 import { useLightboxStore } from "../../../store/useStore";
 
-export function Lightbox(props: NTDLightbox.ILightbox) {
+export default function Lightbox(props: NTDLightbox.ILightbox) {
   const [lightbox, dispatch] = useLightboxStore((lightbox) => lightbox);
 
   const { content, isActive } = lightbox;
